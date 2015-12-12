@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'social.apps.django_app.default',
+
     'humanbot.core',
     'humanbot.health',
 ]
@@ -66,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -128,3 +132,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = './media/'
 MEDIA_URL = '/media/'
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.withings.WithingsOAuth',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_WITHINGS_KEY = '74e77c1c3180783de4e811753fc6115d97b0937683416795002b96d4c3ff'
+SOCIAL_AUTH_WITHINGS_SECRET = 'dffd5d6293b396f95f1f8d12f74297c48b80b0f75e1521b6eed62c2b319'

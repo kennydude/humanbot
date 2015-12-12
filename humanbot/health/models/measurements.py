@@ -43,7 +43,7 @@ class Measurement(models.Model):
     """
     human = models.ForeignKey(Human)
     created = models.DateTimeField()
-    value = models.IntegerField()
+    value = models.DecimalField(max_digits=10, decimal_places=5)
     measurement_type = models.ForeignKey(MeasurementType)
     measurement_for = models.ForeignKey(MeasurementFor)
     grouping = models.ForeignKey(MeasurementGroup, null=True, blank=True)
