@@ -1,13 +1,28 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.conf import settings
 
 
 class Human(models.Model):
     name = models.CharField(max_length=250)
     picture = models.ImageField()
-    user = models.OneToOneField(settings.AUTH_USER_MODEL)
 
     def __unicode__(self):
         return self.name
+
+    def get_connected_services(self):
+        services = list(ConnectedService.objects.filter(
+            human=self).values_list('service_name', flat=True))
+        return {
+            'withings': {
+                'name': 'Withings',
+                'key': 'withings',
+                'connected': 'withings' in services
+            },
+        }
+
+
+class ConnectedService(models.Model):
+    service_name = models.CharField(max_length=200)
+    auth_details = models.TextField()
+    human = models.ForeignKey(Human)

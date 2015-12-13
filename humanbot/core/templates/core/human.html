@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>
+            <img class="avatar" src="/media/{{ object.picture }}" />
+            {{ object }}
+            <small>Human being</small>
+        </h1>
+    </div>
+    <h2>Connected Services</h2>
+    {% for service in object.get_connected_services.values %}
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+            <img class="media-object avatar" src="/static/icons/{{ service.key }}.png" />
+        </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{ service.name }}</h4>
+            {% if service.connected %}
+            Connected
+            {% else %}
+            Not connected. <a href="/profile/{{ object.pk }}/services/{{ service.key }}/connect">Connect</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

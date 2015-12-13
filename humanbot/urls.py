@@ -18,9 +18,10 @@ from django.conf.urls import url, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from humanbot.core.views import HumanView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('', include('social.apps.django_app.urls', namespace='social')),
-    url(r'^health/', include('humanbot.health.urls')),
+    url(r'^', include('humanbot.health.urls')),
+    url(r'^profile/(?P<pk>[0-9]+)/$', HumanView.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
