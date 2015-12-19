@@ -4,7 +4,7 @@ from humanbot.health.models.measurements import Measurement
 
 
 class RouteMeasurement(models.Model):
-    measurement = models.ForeignKey(Measurement)
+    measurement = models.ForeignKey(Measurement, related_name='route')
     route = models.MultiPointField()
 
     def __unicode__(self):

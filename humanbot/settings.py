@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
 
+    'django_pgviews',
+    'rest_framework',
+    'rest_framework_gis',
+
     'humanbot.core',
     'humanbot.health',
 ]
@@ -135,6 +139,10 @@ SOCIAL_AUTH_WITHINGS_SECRET = 'dffd5d6293b396f95f1f8d12f74297c48b80b0f75e1521b6e
 
 RUNKEEPER_KEY = '76c770b8c34e4aac8b31e1f7cfe6cc5a'
 RUNKEEPER_SECRET = 'b5f4537f07084d16988e3450675a128b'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
+}
 
 import platform
 if platform.system() == "darwin":

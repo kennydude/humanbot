@@ -11,4 +11,8 @@ requests==2.8.1
 requests-oauthlib==0.5.0
 six==1.10.0
 static3==0.6.1
-arrow=0.7.0
+arrow==0.7.0
+djangorestframework==3.3.2
+django-filter==0.11.0
+django-crispy-forms==1.5.2
+djangorestframework-gis==0.10
