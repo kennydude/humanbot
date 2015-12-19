@@ -19,6 +19,11 @@ class Human(models.Model):
                 'key': 'withings',
                 'connected': 'withings' in services
             },
+            'runkeeper': {
+                'name': 'Runkeeper',
+                'key': 'runkeeper',
+                'connected': 'runkeeper' in services
+            }
         }
 
 
@@ -26,3 +31,6 @@ class ConnectedService(models.Model):
     service_name = models.CharField(max_length=200)
     auth_details = models.TextField()
     human = models.ForeignKey(Human)
+
+    def __unicode__(self):
+        return '{} for {}'.format(self.service_name, self.human)

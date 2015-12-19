@@ -9,7 +9,6 @@ from django.views.generic import View
 from django.shortcuts import redirect
 from humanbot.health.models import Measurement, MeasurementType, MeasurementFor
 from humanbot.core.models import ConnectedService
-# from social.apps.django_app.default.models import UserSocialAuth
 
 # Map these to our own values
 # you can customize more details on these in admin! (except name for now)
