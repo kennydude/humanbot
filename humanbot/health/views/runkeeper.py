@@ -1,12 +1,11 @@
 import urllib
 import json
-import datetime
 
 from django.http import HttpResponse
 from django.views.generic import View
 from django.shortcuts import redirect
 from django.conf import settings
-from django.contrib.gis.geos import MultiPoint, Point
+from django.contrib.gis.geos import LineString, Point
 
 import requests
 import arrow
@@ -49,7 +48,8 @@ class RunkeeperSyncView(View):
                         'measurement_type': m_type,
                         'value': activity['total_distance'],
                         'created': arrow.get(
-                            activity['start_time'][5:].strip(), 'DD MMM YYYY HH:mm:ss').datetime
+                            activity['start_time'][5:].strip(),
+                                'DD MMM YYYY HH:mm:ss').datetime
                     })
                 if created:  # New!
                     print activity['uri'], 'is new'
@@ -62,7 +62,7 @@ class RunkeeperSyncView(View):
                         points.append(Point(point['longitude'],
                             point['latitude']))
                     rm = RouteMeasurement(
-                        route=MultiPoint(points),
+                        route=LineString(points),
                         measurement=measure)
                     rm.save()
         return HttpResponse('ok')
