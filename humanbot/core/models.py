@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.conf import settings
 
 
 class Human(models.Model):
@@ -25,6 +26,18 @@ class Human(models.Model):
                 'connected': 'runkeeper' in services
             }
         }
+
+
+class HumanUserConnection(models.Model):
+    human = models.ForeignKey(Human, related_name='connection')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    can_write = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        if self.can_write:
+            return '{} can write to {}'.format(self.user, self.human)
+        else:
+            return '{} can read from {}'.format(self.user, self.human)
 
 
 class ConnectedService(models.Model):

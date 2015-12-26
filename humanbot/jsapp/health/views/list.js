@@ -37,10 +37,16 @@ let MeasurementChartView = ChartView.extend({
 
 let MeasurementView = Marionette.LayoutView.extend({
     template: require("health/templates/measurement_layout.html"),
+    
     regions: {
         "chart": ".chart",
         "list": ".list"
     },
+
+    modelEvents:{
+        "sync": "render"
+    },
+
     onRender: function(){
         let col = this.options.collection;
         this.showChildView('list', new MeasurementListView({

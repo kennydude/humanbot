@@ -23,8 +23,8 @@ from humanbot.core.views import HumanView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('humanbot.health.urls')),
+    url(r'^', include('humanbot.core.urls')),
+    url('^', include('django.contrib.auth.urls')),
     url(r'^api-auth/',
         include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^profile/(?P<pk>[0-9]+)/$',
-        HumanView.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

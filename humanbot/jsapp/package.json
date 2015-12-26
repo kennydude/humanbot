@@ -8,6 +8,7 @@
     "backbone": "^1.2.3",
     "backbone-relational": "^0.10.0",
     "backbone.marionette": "^2.4.4",
+    "backbone.paginator": "^2.0.2",
     "backbone.superrouter": "0.0.6",
     "chart.js": "^1.0.2",
     "jquery": "^2.1.4",

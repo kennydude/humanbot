@@ -22,9 +22,13 @@ urlpatterns = [
         MeasurementViewSet.as_view({
             'get': 'list'
         })),
-    url(r'^api/humans/(?P<human_id>[0-9]+)/measurements/for',
+    url(r'^api/humans/(?P<human_id>[0-9]+)/measurements/for$',
         MeasurementForViewSet.as_view({
             'get': 'list'
+        })),
+    url(r'^api/humans/(?P<human_id>[0-9]+)/measurements/for/(?P<pk>[0-9]+)$',
+        MeasurementForViewSet.as_view({
+            'get': 'retrieve'
         })),
     url(r'^api/humans/(?P<human_id>[0-9]+)/measurements/(?P<pk>[0-9]+)$',
         MeasurementViewSet.as_view({

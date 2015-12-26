@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="heading">
+    Humans
+</div>
+{% for human in object_list %}
+<a href="/humans/{{ human.id }}">
+    <div class="list-item">
+        <img class="avatar" src="{{ human.picture.url }}" />
+        {{ human.name }}
+    </div>
+</a>
+{% endfor %}
+{% endblock %}
