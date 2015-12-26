@@ -7,7 +7,9 @@ from rest_framework import viewsets
 
 
 class MeasurementForViewSet(viewsets.ModelViewSet):
-    queryset = MeasurementFor.objects.all()
+    def get_queryset(self):
+        return MeasurementFor.objects.filter(
+            human__connection__user=self.request.user)
     serializer_class = MeasurementForSerializer
 
 

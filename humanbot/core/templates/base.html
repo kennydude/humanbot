@@ -23,6 +23,12 @@
         {% endblock %}
     </div>
 
+    {% if request.user.is_authenticated %}
+    <div class="footer box">
+        You are logged in as {{ request.user }}.
+        <a href="/logout">Logout?</a>
+    </div>
+    {% endif %}
 
 </body>
 </html>

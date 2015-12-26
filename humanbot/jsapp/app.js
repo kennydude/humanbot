@@ -19,7 +19,7 @@ require("health/router.js");
 // Boot up app
 var regions = new Marionette.RegionManager({
   regions: {
-    body: "body"
+    body: ".container"
   }
 });
 

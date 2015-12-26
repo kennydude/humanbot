@@ -17,7 +17,9 @@ let ForView = Marionette.ItemView.extend({
     }
 })
 
-let ForListView = Marionette.CollectionView.extend({
+let ForListView = Marionette.CompositeView.extend({
+    template: require("health/templates/for_layout.html"),
+    childViewContainer: ".list",
     childView: ForView,
     emptyViewOptions: function(){
         return {

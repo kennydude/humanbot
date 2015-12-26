@@ -33,6 +33,7 @@ class MeasurementFor(models.Model):
     """What is the measurement for? Swimming? Weight?
     """
     name = models.CharField(max_length=50)
+    human = models.ForeignKey(Human)
 
     def __unicode__(self):
         return self.name

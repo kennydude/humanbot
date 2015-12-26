@@ -10,5 +10,9 @@
         {{ human.name }}
     </div>
 </a>
+<div class="box">
+    <a class="button" href="/app/?human={{ human.id }}">Lauch the app</a>
+    <a class="button" href="/humans/{{ human.id }}">Configure</a>
+</div>
 {% endfor %}
 {% endblock %}

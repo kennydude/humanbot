@@ -53,17 +53,23 @@ a{
     border-bottom: 10px solid #EEE;
 }
 
-form label, form input, form button, .box{
-    display: block;
-    margin: 15px;
+.box{
+    padding: 15px;
 }
 form label, form input{
+    display: block;
+    margin: 15px;
     font-size: 17px;
 }
 .message{
     padding: 15px;
     margin-bottom: 10px;
     background: #fff8cc;
+}
+
+.footer{
+    background: #EEE;
+    margin-top: 30px;
 }
 
 
