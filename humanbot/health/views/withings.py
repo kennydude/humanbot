@@ -25,7 +25,7 @@ MEASUREMENT_FORS = {
 }
 MEASUREMENT_TYPES = {
     1: 'Kilograms',
-    4: 'Height',
+    4: 'Meters',
     5: 'Kilograms',
     6: 'Percentage',
     8: 'Percentage',

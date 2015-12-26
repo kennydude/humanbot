@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+}
+.header{
+    background: #333;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+}
+.header > div{
+    padding: 10px;
+}
+.header .icon img{
+    width: 44px;
+}
+.header .icon.active{
+    border-bottom: 5px solid #0074D9;
+}
+
+.list-item{
+    padding: 15px;
+    cursor: pointer;
+    background: #EEE;
+}
+.list-item:nth-child(odd){
+    background: #DDD;
+}
+.list-item:hover{
+    background: #FFF;
+}

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'humanbot.core',
     'humanbot.health',
+    'humanbot.jsapp',
 ]
 
 MIDDLEWARE_CLASSES = [

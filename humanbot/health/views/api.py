@@ -1,8 +1,14 @@
 from humanbot.health.serializers import (MeasurementSerializer,
-    RouteMeasurementSerializer)
-from humanbot.health.models import Measurement, RouteMeasurement
+    RouteMeasurementSerializer, MeasurementForSerializer)
+from humanbot.health.models import (Measurement, RouteMeasurement,
+    MeasurementFor)
 
 from rest_framework import viewsets
+
+
+class MeasurementForViewSet(viewsets.ModelViewSet):
+    queryset = MeasurementFor.objects.all()
+    serializer_class = MeasurementForSerializer
 
 
 class MeasurementViewSet(viewsets.ModelViewSet):

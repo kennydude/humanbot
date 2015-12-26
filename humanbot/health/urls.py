@@ -1,7 +1,8 @@
 from django.conf.urls import url, include
 
 from humanbot.health.views import (WithingsImporter, WithingsConnect,
-    RunkeeperConnectView, RunkeeperSyncView, MeasurementViewSet, RouteViewSet)
+    RunkeeperConnectView, RunkeeperSyncView, MeasurementViewSet, RouteViewSet,
+    MeasurementForViewSet)
 
 
 urlpatterns = [
@@ -19,6 +20,10 @@ urlpatterns = [
         name='runkeeper-connect'),
     url(r'^api/humans/(?P<human_id>[0-9]+)/measurements$',
         MeasurementViewSet.as_view({
+            'get': 'list'
+        })),
+    url(r'^api/humans/(?P<human_id>[0-9]+)/measurements/for',
+        MeasurementForViewSet.as_view({
             'get': 'list'
         })),
     url(r'^api/humans/(?P<human_id>[0-9]+)/measurements/(?P<pk>[0-9]+)$',
