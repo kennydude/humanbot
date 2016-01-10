@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'humanbot.core',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,9 +45,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_gis',
 
-    'humanbot.core',
     'humanbot.health',
     'humanbot.jsapp',
+    'humanbot.meals',
 ]
 
 MIDDLEWARE_CLASSES = [

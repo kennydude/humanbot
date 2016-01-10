@@ -2,6 +2,7 @@ import Marionette from 'backbone.marionette';
 import Backbone from 'backbone';
 import ChartView from 'core/views/chart';
 import EmptyView from 'core/views/empty';
+import BaseListView from 'core/views/list';
 
 let MeasurementItemView = Marionette.ItemView.extend({
     template: require("health/templates/measurement.html"),
@@ -18,17 +19,8 @@ let MeasurementItemView = Marionette.ItemView.extend({
     }
 })
 
-let MeasurementListView = Marionette.CollectionView.extend({
-    childView: MeasurementItemView,
-    emptyViewOptions: function(){
-        return {
-            collection: this.collection
-        }
-    },
-    emptyView: EmptyView,
-    collectionEvents: {
-        "state": "render"
-    }
+let MeasurementListView = BaseListView.extend({
+    childView: MeasurementItemView
 });
 
 let MeasurementChartView = ChartView.extend({
@@ -37,7 +29,7 @@ let MeasurementChartView = ChartView.extend({
 
 let MeasurementView = Marionette.LayoutView.extend({
     template: require("health/templates/measurement_layout.html"),
-    
+
     regions: {
         "chart": ".chart",
         "list": ".list"
