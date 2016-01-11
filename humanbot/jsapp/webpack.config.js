@@ -6,25 +6,26 @@ module.exports = {
         path: __dirname + '/static',
         filename: 'app.js'
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     module:{
         loaders: [
-            {
-                test: /\.html$/,
-                loader: "underscore-template-loader",
-                query: {
-                    attributes: []
-                }
-            },
             // Switch on ES6 + ES7!
-            { test: /\.js$/,
-              exclude: /(node_modules)/,
-              loader: 'babel-loader'
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules)/,
+                loaders: ['babel?cacheDirectory'],
+            },
+            {
+                test: /\.json$/,
+                loaders: ['json']
             }
         ]
     },
     resolve: {
         // Let's us do nice things like require("auth/views/login") etc
-        root: __dirname
+        root: __dirname,
     },
     devtool: "#source-map"
 }

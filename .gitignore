@@ -5,3 +5,4 @@ venv
 node_modules
 humanbot/jsapp/static/app.js
 humanbot/jsapp/static/app.js.map
+humanbot/jsapp/old_*

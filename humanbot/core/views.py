@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView, TemplateView
+
+from rest_framework import viewsets
+
 from humanbot.core.models import Human
+from humanbot.core.serializers import HumanSerializer
 
 
 class HumanView(DetailView):
@@ -8,7 +12,9 @@ class HumanView(DetailView):
     model = Human
 
 
-class HumanListView(ListView):
+class HumanListView(viewsets.ModelViewSet):
+    serializer_class = HumanSerializer
+
     def get_queryset(self):
         return Human.objects.filter(connection__user=self.request.user)
 

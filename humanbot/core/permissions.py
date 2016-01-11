@@ -7,6 +7,8 @@ class UserHumanPermission(permissions.BasePermission):
     def has_permission(self, request, view):
         if not request.user.is_authenticated():
             return False
+        if 'human_id' not in request.resolver_match.kwargs:
+            return True
 
         try:
             huc = HumanUserConnection.objects.get(user=request.user,

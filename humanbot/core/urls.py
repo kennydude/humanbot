@@ -4,8 +4,10 @@ from humanbot.core.views import (HumanView, HumanListView, AppView)
 
 
 urlpatterns = [
-    url(r'^humans/$',
-        HumanListView.as_view()),
+    url(r'^api/humans$',
+        HumanListView.as_view({
+            'get': 'list'
+        })),
     url(r'^humans/(?P<pk>[0-9]+)/$',
         HumanView.as_view()),
     url(r'^app/$',
